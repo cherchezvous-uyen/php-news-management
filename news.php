@@ -83,15 +83,5 @@ foreach ($itemsLink as $rssItem) {
 }
 
 ?>
-<section id="content" class="bg-light">
-    <div class="content-wrap pt-lg-0 pt-xl-0 pb-0">
-        <div class="container-fluid clearfix">
-            <div class="heading-block border-bottom-0 center pt-4 mb-3"><h3>Tin tức</h3>
-            </div>
             <!-- Posts -->
-            <div class="row grid-container infinity-wrapper clearfix align-align-items-start">
                 <?php echo $posts; ?>
-            </div>
-        </div>
-    </div>
-</section>
