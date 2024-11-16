@@ -13,4 +13,4 @@
 <link rel="stylesheet" href="css/fonts.css" type="text/css" />
 
 <link rel="stylesheet" href="css/custom.css" type="text/css" />
-<title>News | ZendVN</title>
+<title>News | Cherchez Uyen</title>

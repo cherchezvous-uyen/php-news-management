@@ -4,7 +4,7 @@
 
             <div class="row col-mb-30">
                 <div class="col-12 text-center text-muted">
-                    Copyrights &copy; 2020 All Rights Reserved by ZendVN<br>
+                    Copyrights &copy; 2024 All Rights Reserved by Uyen Monica<br>
                 </div>
             </div>
 

@@ -5,8 +5,8 @@
 
                 <!-- Logo -->
                 <div id="logo">
-                    <a href="#" class="standard-logo"><span class="p-1">ZendVN</span></a>
-                    <a href="#" class="retina-logo"><span class="p-1">ZendVN</span></a>
+                    <a href="#" class="standard-logo"><span class="p-1">Cherchez Uyen</span></a>
+                    <a href="#" class="retina-logo"><span class="p-1">Cherchez Uyen</span></a>
                 </div>
                 <!-- #logo end -->
 
