@@ -18,18 +18,8 @@ echo '</pre>';
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mdb.min.css">
-    <link rel="stylesheet" href="css/my-style.css">
+    <?php require_once'html/head.php'?>
 </head>
-
 <body style="background-color: #eee;">
     <div class="container pt-5">
         <div class="card mb-4">
@@ -73,37 +63,31 @@ echo '</pre>';
                         </tr>
                     </thead>
                     <tbody>
-    <?php
-    foreach ($items as $item) {
-        $id = $item['id'];
-        $link = $item['link'];
-        $status = Helper::showItemStatus($id, $item['status']);
-        $ordering = $item['ordering'];
-        
-        echo '
-        <tr>
-            <td>' . $id . '</td>
-            <td>' . $link . '</td>
-            <td>' . $status . '</td>
-            <td>' . $ordering . '</td>
-            <td>
-                <a href="edit.php?id=' . $id . '" class="btn btn-sm btn-warning">Edit</a>
-                <a href="delete.php?id=' . $id . '" class="btn btn-sm btn-danger btn-delete">Delete</a>
-            </td>
-        </tr>';
-    }
-    ?>
-</tbody>
-
+                        <?php
+                        foreach ($items as $item) {
+                            $id = $item['id'];
+                            $link = $item['link'];
+                            $status = Helper::showItemStatus($id, $item['status']);
+                            $ordering = $item['ordering'];
+                            
+                            echo '
+                            <tr>
+                                <td>' . $id . '</td>
+                                <td>' . $link . '</td>
+                                <td>' . $status . '</td>
+                                <td>' . $ordering . '</td>
+                                <td>
+                                    <a href="edit.php?id=' . $id . '" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="delete.php?id=' . $id . '" class="btn btn-sm btn-danger btn-delete">Delete</a>
+                                </td>
+                            </tr>';
+                        }
+                        ?>
+                </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/mdb.min.js"></script>
+    <?php require_once "html/script.php"?>
 </body>
-
 </html>

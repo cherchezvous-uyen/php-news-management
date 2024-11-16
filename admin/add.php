@@ -50,7 +50,7 @@ $rowOrdering = Form:: formRow($lblOrdering, $inputOrdering);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<?php require_once 'html/head.php'?>
 </head>
 <body style="background-color: #eee;">
     <div class="container pt-5">
@@ -71,5 +71,6 @@ $rowOrdering = Form:: formRow($lblOrdering, $inputOrdering);
             </div>
         </form>
     </div>
+<?php require_once "html/script.php"?>
 </body>
 </html>
