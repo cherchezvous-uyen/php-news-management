@@ -22,7 +22,6 @@
                             <div class="heading-block border-bottom-0 center pt-4 mb-3">
                                 <h3>Tin tức</h3>
                             </div>
-
                             <!-- Posts Start -->
                             <div class="row grid-container infinity-wrapper clearfix align-align-items-start">
                                 <?php require_once "news.php" ?>
@@ -33,14 +32,13 @@
                     </div>
                 </section> 
                 <!-- Content End -->
-
                 <!-- Section Start -->
                 <section class="right-side mb-4">
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
                                 <div class="box mt-4">
-                                <h3 class="mb-1">Giá Vang</h3>
+                                <h3 class="mb-1">Giá Vàng</h3>
                                 <div class="card card-body" id="boxgold">
                                     <!-- <?php require_once "boxgold.php" ?> -->
                                     <div class="text-center">
