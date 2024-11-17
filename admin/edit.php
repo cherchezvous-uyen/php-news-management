@@ -24,10 +24,12 @@ $outValidate = $singleRecord;
 if (!empty($_POST)) {
     $source = [
         'link' => $_POST['link'],
+        'bannedKeyWord' => $_POST['ban'],
         'status' => $_POST['status'],
         'ordering' => $_POST['ordering']
     ];
 
+    // Kiểm tra định dạng
     $validate = new Validate($source);
     $validate->addRule('link', 'url')
              ->addRule('ordering', 'int', ['min' => 1, 'max' => 100])
@@ -46,21 +48,25 @@ if (!empty($_POST)) {
 }
 
 $lblLink = Form::label('Link');
-$lblStatus = Form::label('Status');
-$lblOrdering = Form::label('Ordering');
+$lblBan = Form::label('Banned KeyWord');
+$lblStatus = Form::label ('Status');
+$lblOrdering = Form:: label( 'Ordering');
 
-$inputLink = Form::input('text', 'link', @$outValidate['link']);
-$inputOrdering = Form::input('number', 'ordering', @$outValidate['ordering']);
+$inputLink = Form:: input ('text', 'link', @$outValidate['link']);
+$inputBan = Form:: input ('text', 'ban', @$outValidate['ban']);
+$inputOrdering = Form:: input (' number' ,'ordering', @$outValidate['ordering']);
 $statusValues = [
-    'default' => 'Select status',
+    'default'=>'Select status',
     'active' => 'Active',
     'inactive' => 'Inactive',
 ];
 
 $slbStatus = Form::selectBox($statusValues, 'status', $outValidate['status'] ?? 'default');
 $rowLink = Form::formRow($lblLink, $inputLink);
+$rowBan = Form::formRow($lblBan, $inputBan);
 $rowStatus = Form::formRow($lblStatus, $slbStatus);
-$rowOrdering = Form::formRow($lblOrdering, $inputOrdering);
+$rowOrdering = Form:: formRow($lblOrdering, $inputOrdering);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +82,7 @@ $rowOrdering = Form::formRow($lblOrdering, $inputOrdering);
                 </div>
                 <div class="card-body">
                     <?= $error ?>
-                    <?= $rowLink . $rowStatus . $rowOrdering ?>
+                    <?= $rowLink . $rowBan.$rowStatus . $rowOrdering ?>
                 </div>
                 <div class="card-footer">
                     <input class="form-control" type="hidden" name="token" value="1611025715"> 

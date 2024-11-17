@@ -11,13 +11,15 @@ if (!$itemsLink) {
     exit;
 }
 
-
 foreach ($itemsLink as $rssItem) {
-
+// duyệt từng link
     $rss_url = $rssItem['link'];
-
+    echo '<pre style="color:red">';
+    print_r($rssItem);
+    echo '</pre>';
+    // Lấy danh sách từ khóa bị cấm từ cột bankeyword, tách thành một mảng
+        $excludedKeywords = array_map('trim', explode(',', $rssItem['bannedKeyWord']));
     // Neu ko phai vnexpress continue
-
     $rss_content = simplexml_load_file($rss_url);
     if ($rss_content === false) {
         echo "<p>Error loading RSS feed from URL: {$rss_url}</p>";
@@ -29,15 +31,27 @@ foreach ($itemsLink as $rssItem) {
 
     $count = 0; 
     foreach ($rss_content->channel->item as $item) {
-        // if(!isset($rssItem['source_name'])) continue;
+        $title = $item->title;
+        $description = $item->description;
+
+        // Kiểm tra từ khóa trong tiêu đề và mô tả
+        $containsExcludedKeyword = false;
+        foreach ($excludedKeywords as $keyword) {
+            if (stripos($title, $keyword) !== false || stripos($description, $keyword) !== false) {
+                $containsExcludedKeyword = true;
+                break;
+            }
+        }
+        // Nếu có chứa từ khóa không mong muốn, bỏ qua mẫu tin
+        if (!$containsExcludedKeyword) {
+            continue;
+        }
+
+        // Nếu mẫu tin hợp lệ, xử lý tiếp
 
         if ($count >= $max_posts) {
             break;
         }
-        $title = $item->title;
-
-        // Lấy ra danh sách từ cấm
-        // Nếu $title nó nằm trong danh sách từ cấm continue
 
         $link = $item->link;
         $description = $item->description;

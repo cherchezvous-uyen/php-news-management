@@ -57,6 +57,7 @@ echo '</pre>';
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Link</th>
+                            <th scope="col">Banned keyword</th>
                             <th scope="col">Status</th>
                             <th scope="col">Ordering</th>
                             <th scope="col">Action</th>
@@ -67,6 +68,7 @@ echo '</pre>';
                         foreach ($items as $item) {
                             $id = $item['id'];
                             $link = $item['link'];
+                            $ban= $item['bannedKeyWord'];
                             $status = Helper::showItemStatus($id, $item['status']);
                             $ordering = $item['ordering'];
                             
@@ -74,6 +76,7 @@ echo '</pre>';
                             <tr>
                                 <td>' . $id . '</td>
                                 <td>' . $link . '</td>
+                                <td>' . $ban . '</td>
                                 <td>' . $status . '</td>
                                 <td>' . $ordering . '</td>
                                 <td>
